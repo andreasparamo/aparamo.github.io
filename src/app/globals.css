@@ -23,3 +23,8 @@ html, body {
 ::selection {
   @apply bg-primary/30 text-white;
 }
+
+#work,
+#about {
+  scroll-margin-top: 6rem;
+}

@@ -1,4 +1,60 @@
 import AnimatedSection from "@/components/AnimatedSection";
+import Image from "next/image";
+
+const languages = [
+  { name: "Python", icon: "python" },
+  { name: "JavaScript", icon: "javascript" },
+  { name: "TypeScript", icon: "typescript" },
+  { name: "C++", icon: "cplusplus" },
+  { name: "C#", icon: "csharp" },
+  { name: "HTML/CSS", icon: "html-css" },
+  { name: "SQL", icon: "sql" },
+];
+
+const frameworks = [
+  { name: "Next.js", icon: "nextjs" },
+  { name: "React", icon: "react" },
+  { name: "Tailwind CSS", icon: "tailwind" },
+  { name: ".NET 8", icon: "dotnet8" },
+];
+
+const tools = [
+  { name: "Git", icon: "git" },
+  { name: "GitHub", icon: "github" },
+  { name: "VS Code", icon: "vscode" },
+  { name: "Firebase", icon: "firebase" },
+  { name: "SQLite", icon: "sqlite" },
+  { name: "Linux", icon: "linux" },
+  { name: "Windows", icon: "windows" },
+];
+
+function SkillGrid({
+  skills,
+  columns = "grid-cols-2 sm:grid-cols-3 md:grid-cols-6",
+}: {
+  skills: { name: string; icon: string }[];
+  columns?: string;
+}) {
+  return (
+    <div className={`grid ${columns} gap-8 text-center text-sm md:text-base text-slate-300`}>
+      {skills.map((skill) => (
+        <div
+          key={skill.name}
+          className="flex flex-col items-center gap-3 py-4 border border-slate-800 rounded-lg hover:border-slate-500 hover:text-white transition-colors"
+        >
+          <Image
+            src={`/icons/skills/${skill.icon}.svg`}
+            alt={`${skill.name} logo`}
+            width={56}
+            height={56}
+            className="w-10 h-10 md:w-14 md:h-14 object-contain"
+          />
+          <span>{skill.name}</span>
+        </div>
+      ))}
+    </div>
+  );
+}
 
 export default function Home() {
   return (
@@ -62,11 +118,10 @@ export default function Home() {
         </AnimatedSection>
 
         <AnimatedSection delay={0.2}>
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-8">
+          <div className="mb-8">
             <h5 className="text-2xl sm:text-3xl uppercase text-slate-400 font-semibold tracking-widest">
               Projects
             </h5>
-            <div className="w-12 h-[1px] bg-slate-400 hidden sm:block"></div>
           </div>
           <p className="text-lg md:text-xl text-slate-300 mb-8 max-w-2xl">
             Over the years, I have embarked on a diverse range of projects that have allowed me to explore different facets of software development. From building full-stack applications to diving into the complexities of machine learning, each project has been a stepping stone in my journey.
@@ -159,8 +214,24 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             <AnimatedSection delay={0.1}>
               <div className="flex flex-col gap-2">
-                <div className="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center mb-4 border border-slate-700">
-                  <span className="text-xl">👨‍💻</span>
+                <div className="group w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center mb-4 border border-slate-700">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="w-10 h-10 text-slate-400 group-hover:text-white transition-colors duration-300"
+                  >
+                    <rect x="4" y="4" width="16" height="11" rx="1" />
+                    <path d="M 2 19 L 22 19" strokeWidth="2" />
+                    <path d="M 4 15 L 2 19" />
+                    <path d="M 20 15 L 22 19" />
+                    <path d="M 10 7 L 7 9.5 L 10 12" stroke="#fef08a" />
+                    <path d="M 14 7 L 17 9.5 L 14 12" stroke="#fef08a" />
+                  </svg>
                 </div>
                 <h3 className="text-xl font-medium text-white">Web Developer</h3>
                 <h4 className="text-slate-400">Parada Ltd.</h4>
@@ -170,8 +241,25 @@ export default function Home() {
 
             <AnimatedSection delay={0.2}>
               <div className="flex flex-col gap-2">
-                <div className="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center mb-4 border border-slate-700">
-                  <span className="text-xl">📦</span>
+                <div className="group w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center mb-4 border border-slate-700">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="w-10 h-10 text-slate-400 group-hover:text-white transition-colors duration-300"
+                  >
+                    <rect x="2" y="4" width="14" height="12" rx="1" />
+                    <path d="M 16 9 L 20 9 L 23 12 L 23 16 L 16 16 Z" />
+                    <path d="M 16 12 L 21.5 12 L 19 9 L 16 9 Z" fill="#fef08a" stroke="#fef08a" strokeWidth="1" />
+                    <circle cx="6" cy="18" r="2.5" />
+                    <circle cx="18" cy="18" r="2.5" />
+                    <line x1="4" y1="8" x2="10" y2="8" stroke="#fef08a" />
+                    <line x1="5" y1="12" x2="9" y2="12" stroke="#fef08a" />
+                  </svg>
                 </div>
                 <h3 className="text-xl font-medium text-white">Delivery Associate</h3>
                 <h4 className="text-slate-400">Amazon DSP</h4>
@@ -181,8 +269,24 @@ export default function Home() {
 
             <AnimatedSection delay={0.3}>
               <div className="flex flex-col gap-2">
-                <div className="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center mb-4 border border-slate-700">
-                  <span className="text-xl">🚚</span>
+                <div className="group w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center mb-4 border border-slate-700">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="w-10 h-10 text-slate-400 group-hover:text-white transition-colors duration-300"
+                  >
+                    <path d="M 3 2 L 5 2 L 5 20 L 14 20" />
+                    <circle cx="5" cy="20" r="2" />
+                    <rect x="6" y="12" width="11" height="8" rx="1" />
+                    <rect x="8" y="5" width="8" height="7" rx="1" />
+                    <line x1="11.5" y1="12" x2="11.5" y2="20" stroke="#fef08a" />
+                    <line x1="8" y1="8.5" x2="16" y2="8.5" stroke="#fef08a" strokeDasharray="2 2" />
+                  </svg>
                 </div>
                 <h3 className="text-xl font-medium text-white">Moving Specialist</h3>
                 <h4 className="text-slate-400">Pack Pro Movers</h4>
@@ -198,39 +302,21 @@ export default function Home() {
         <AnimatedSection>
           <div className="mb-20 border-t border-dashed border-slate-800 pt-8">
             <h5 className="font-display text-3xl sm:text-4xl md:text-5xl text-white mb-12">Languages</h5>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-8 text-center text-sm md:text-base text-slate-300">
-              {["Python", "JavaScript", "TypeScript", "C++", "C#", "HTML/CSS", "SQL"].map((skill) => (
-                <div key={skill} className="py-4 border border-slate-800 rounded-lg hover:border-slate-500 hover:text-white transition-colors">
-                  {skill}
-                </div>
-              ))}
-            </div>
+            <SkillGrid skills={languages} />
           </div>
         </AnimatedSection>
 
         <AnimatedSection>
           <div className="mb-20 border-t border-dashed border-slate-800 pt-8">
             <h5 className="font-display text-3xl sm:text-4xl md:text-5xl text-white mb-12">Frameworks</h5>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 text-center text-sm md:text-base text-slate-300">
-              {["Next.js", "React", "Tailwind CSS", ".NET 8", "WPF"].map((skill) => (
-                <div key={skill} className="py-4 border border-slate-800 rounded-lg hover:border-slate-500 hover:text-white transition-colors">
-                  {skill}
-                </div>
-              ))}
-            </div>
+            <SkillGrid skills={frameworks} columns="grid-cols-2 sm:grid-cols-3 md:grid-cols-5" />
           </div>
         </AnimatedSection>
 
         <AnimatedSection>
           <div className="mb-20 border-t border-dashed border-slate-800 pt-8">
             <h5 className="font-display text-3xl sm:text-4xl md:text-5xl text-white mb-12">Tools & Platforms</h5>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 text-center text-sm md:text-base text-slate-300">
-              {["Git", "GitHub", "VS Code", "Firebase", "SQLite", "Linux", "Windows"].map((skill) => (
-                <div key={skill} className="py-4 border border-slate-800 rounded-lg hover:border-slate-500 hover:text-white transition-colors">
-                  {skill}
-                </div>
-              ))}
-            </div>
+            <SkillGrid skills={tools} columns="grid-cols-2 sm:grid-cols-3 md:grid-cols-5" />
           </div>
         </AnimatedSection>
       </section>
