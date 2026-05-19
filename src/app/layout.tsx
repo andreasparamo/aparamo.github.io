@@ -9,8 +9,11 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "aparamo — Next.js Portfolio",
-  description: "A premium 3D and animated portfolio built with Next.js, Framer Motion, Lenis, and Spline.",
+  title: "Andreas Paramo Portfolio",
+  description: "Portfolio of Andreas Paramo",
+  icons: {
+    icon: "/icon.svg",
+  },
 };
 
 export default function RootLayout({
