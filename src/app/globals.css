@@ -1,6 +1,5 @@
 @import "tailwindcss";
 
-/* Custom theme configuration for Tailwind v4 */
 @theme {
   --color-primary: #6366f1;
   --color-primary-light: #818cf8;
@@ -15,8 +14,12 @@
   --font-sans: "Inter", system-ui, -apple-system, sans-serif;
 }
 
-/* Base styles */
-body {
-  @apply bg-surface text-text font-sans antialiased;
+/* Base styles for a premium dark theme */
+html, body {
+  @apply bg-surface text-text font-sans antialiased overflow-x-hidden;
   min-height: 100vh;
+}
+
+::selection {
+  @apply bg-primary/30 text-white;
 }
